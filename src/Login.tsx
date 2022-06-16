@@ -31,10 +31,9 @@ const Login = (props: {setUser: Dispatch<SetStateAction<string | undefined>> }) 
 
 
     return (<>
-        <ThemeProvider theme={darkTheme}>
-            
+      <ThemeProvider theme={darkTheme}>  
         <div>
-        Log in
+          Log in
         </div>
           <form className='m-3'>
             <div className='form-text-input'>
@@ -80,7 +79,7 @@ const Login = (props: {setUser: Dispatch<SetStateAction<string | undefined>> }) 
           <FacebookLoginButton />
           <TwitterLoginButton/>
         </div>
-                </ThemeProvider>
+      </ThemeProvider>
     </>)
 }
 

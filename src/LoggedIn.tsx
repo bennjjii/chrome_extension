@@ -1,5 +1,4 @@
 import { Button } from '@mui/material';
-import { send } from 'process';
 import { useEffect, useState } from 'react';
 import { ChromeMessage, Sender } from "./types";
 
@@ -16,16 +15,16 @@ const LoggedIn = (props: { user: string, logOut: () => void }) => {
                     break;
                 case 'idle':
                     setIdleState(true)
-                    sendIdleMessage();
+                    sendIdleMessage(props.user);
                     break;
             }
         })
     }, [])
 
-    const sendIdleMessage = () => {
+    const sendIdleMessage = (name: string) => {
         const message: ChromeMessage = {
             from: Sender.Extension,
-            message: "userIsIdle",
+            message: name,
         }
 
         const queryInfo: chrome.tabs.QueryInfo = {
@@ -48,7 +47,6 @@ const LoggedIn = (props: { user: string, logOut: () => void }) => {
     return (<>
         <div>
             Hi {props.user}
-            {idleState? "IDLE":"NOT IDLE"}
         </div>
             <Button variant="text" onClick={props.logOut}>log out</Button>
     </>)
