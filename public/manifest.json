@@ -20,6 +20,10 @@
       "run_at": "document_end"
     }
   ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "persistent": false,
   "permissions": ["storage", "idle", "activeTab"],
   "optional_permissions": [
   "<all_urls>"
